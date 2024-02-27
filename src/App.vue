@@ -10,6 +10,7 @@
       <router-link to="/results">Results</router-link>
       <router-link to="/circuit">Circuit</router-link>
       <router-link to="/calendar">Calendar</router-link>
+      <router-link to="/favorites">Favorites</router-link>
     </nav>
   </header>
   <article>
