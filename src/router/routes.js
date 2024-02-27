@@ -16,7 +16,7 @@ export const router = createRouter({
         {path: '/', name: 'Home', component: Home},
         {path: '/constructorstandings', name: 'ConstructorStandings', component: ConstructorStandings},
         {path: '/constructor/:constructorId', name: 'Constructor', component: Constructor},
-        {path: '/driver', name: 'Driver', component: Driver},
+        {path: '/driver/:driverId', name: 'Driver', component: Driver},
         {path: '/driverstandings', name: 'DriverStandings', component: DriverStandings},
         {path: '/results', name: 'Results', component: Results},
         {path: '/favorites', name: 'Favorites', component: Favorites},
