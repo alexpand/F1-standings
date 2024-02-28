@@ -1,3 +1,21 @@
 export default {
-    common_position: 'posición'
+    common_position: 'posición',
+    common_wins: 'victorias',
+    common_points: 'puntos',
+    common_driver: 'piloto',
+    common_laps: 'vueltas',
+    common_grid: 'parrilla',
+    common_time: 'tiempo',
+    common_status: 'estado',
+    common_circuit: 'circuito',
+    common_locality: 'localidad',
+    common_country: 'país',
+    common_information: 'información',
+    common_season: 'temporada',
+    common_race_name: 'nombre de carrera',
+    common_sprint: 'esprint',
+    common_round: 'ronda',
+    common_report: 'informe',
+    common_constructor: 'constructor',
+    common_description: 'descripción'
 }

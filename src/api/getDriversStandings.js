@@ -1,6 +1,6 @@
 import { endpoints } from '@/api/endpoints'
 
-export async function getDriverStandings() {
+export async function getDriversStandings() {
     const data = await fetch(endpoints.getDriverStandings)
     .then( async (response) => {
         const data = await response.json()

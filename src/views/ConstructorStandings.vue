@@ -49,9 +49,9 @@ onMounted( async () => {
         <thead>
             <tr>
                 <th>{{ lang.common_position }}</th>
-                <th>Constructor</th>
-                <th>Points</th>
-                <th>Wins</th>
+                <th>{{ lang.common_constructor }}</th>
+                <th>{{ lang.common_points }}</th>
+                <th>{{ lang.common_wins }}</th>
                 <th></th>
             </tr>
         </thead>

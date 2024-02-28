@@ -1,11 +1,47 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getDriverStandings } from '@/api/getDriverStandings'
+import { getDriversStandings } from '@/api/getDriversStandings'
+import { drivers, favorites } from '@/store'
+
+import lang from '@/lang'
+
+const driversStore = drivers()
+const favoritesStore = favorites()
 
 const driverList = ref(null)
 
+function hasDrivers() {
+    return !!driversStore.driverList
+}
+
+function getDrivers() {
+    return getDriversStandings()
+}
+
+async function setDrivers() {
+    driversStore.driverList = await getDrivers()
+    return driversStore.driverList
+}
+
+function handleSetFavoriteOnClick(driver) {
+    const driverData = {
+        id: driver.driverId,
+        name: `${driver.givenName} ${driver.familyName}`,
+        nationality: driver.nationality,
+        number: driver.permanentNumber,
+        url: `/driver/${driver.driverId}`
+    }
+    favoritesStore.drivers.push(driverData)
+}
+
+function isFavorite(driverId) {
+    return favoritesStore.drivers.filter( driver => driver.id === driverId ).length > 0
+}
+
 onMounted( async () => {
-    driverList.value = await getDriverStandings()
+    driverList.value = hasDrivers() 
+        ? driversStore.driverList 
+        : await setDrivers()
 })
 
 </script>
@@ -14,11 +50,12 @@ onMounted( async () => {
     <table>
         <thead>
             <tr>
-                <th>Position</th>
-                <th>Driver</th>
-                <th>Constructor</th>
-                <th>Points</th>
-                <th>Wins</th>
+                <th>{{ lang.common_position }}</th>
+                <th>{{ lang.common_driver }}</th>
+                <th>{{ lang.common_constructor }}</th>
+                <th>{{ lang.common_points }}</th>
+                <th>{{ lang.common_wins }}</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +70,13 @@ onMounted( async () => {
                 <td>{{ driver.Constructors[0].name }}</td>
                 <td>{{ driver.points }}</td>
                 <td>{{ driver.wins }}</td>
+                <td v-if="isFavorite(driver.Driver.driverId)">★</td>
+                <td 
+                    v-else
+                    @click="handleSetFavoriteOnClick(driver.Driver)"
+                >
+                    ☆
+                </td>
             </tr>
         </tbody>
     </table>

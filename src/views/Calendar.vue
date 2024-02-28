@@ -2,6 +2,8 @@
 import { ref, onMounted } from 'vue'
 import { getSchedule } from '@/api/getSchedule'
 
+import lang from '@/lang'
+
 const schedule = ref(null)
 
 onMounted( async () => {
@@ -14,14 +16,14 @@ onMounted( async () => {
     <table>
         <thead>
             <tr>
-                <th>Season</th>
-                <th>Round</th>
-                <th>Race Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Sprint</th>
-                <th>Circuit</th>
-                <th>Information</th>
+                <th>{{ lang.common_season }}</th>
+                <th>{{ lang.common_round }}</th>
+                <th>{{ lang.common_race_name }}</th>
+                <th>{{ lang.common_date }}</th>
+                <th>{{ lang.common_time }}</th>
+                <th>{{ lang.common_sprint }}</th>
+                <th>{{ lang.common_circuit }}</th>
+                <th>{{ lang.common_information }}</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +38,7 @@ onMounted( async () => {
                 <td>{{ race.time }}</td>
                 <td>{{ race.Sprint?.date }}</td>
                 <td>{{ race.Circuit.circuitName }}</td>
-                <td><a :href="race.url">Report</a></td>
+                <td><a :href="race.url">{{ lang.common_report }}</a></td>
             </tr>
         </tbody>
     </table>

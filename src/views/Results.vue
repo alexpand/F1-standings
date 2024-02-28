@@ -2,6 +2,8 @@
 import { ref, onMounted } from 'vue'
 import { getRaceResults } from '@/api/getRaceResults'
 
+import lang from '@/lang'
+
 const raceResults = ref(null)
 
 onMounted( async () => {
@@ -13,15 +15,15 @@ onMounted( async () => {
     <table>
         <thead>
             <tr>
-                <th>Position</th>
+                <th>{{ lang.common_position }}</th>
                 <th>Nº</th>
-                <th>Driver</th>
-                <th>Constructor</th>
-                <th>Laps</th>
-                <th>Grid</th>
-                <th>Time</th>
-                <th>Status</th>
-                <th>Points</th>
+                <th>{{ lang.common_driver }}</th>
+                <th>{{ lang.common_constructor }}</th>
+                <th>{{ lang.common_laps }}</th>
+                <th>{{ lang.common_grid }}</th>
+                <th>{{ lang.common_time }}</th>
+                <th>{{ lang.common_status }}</th>
+                <th>{{ lang.common_points }}</th>
             </tr>
         </thead>
         <tbody>
