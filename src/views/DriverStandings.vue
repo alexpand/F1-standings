@@ -1,7 +1,10 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+
 import { getDriversStandings } from '@/api/getDriversStandings'
 import { drivers, favorites } from '@/store'
+
+import FavoritesButton from '@/components/FavoritesButton.vue'
 
 import lang from '@/lang'
 
@@ -21,21 +24,6 @@ function getDrivers() {
 async function setDrivers() {
     driversStore.driverList = await getDrivers()
     return driversStore.driverList
-}
-
-function handleSetFavoriteOnClick(driver) {
-    const driverData = {
-        id: driver.driverId,
-        name: `${driver.givenName} ${driver.familyName}`,
-        nationality: driver.nationality,
-        number: driver.permanentNumber,
-        url: `/driver/${driver.driverId}`
-    }
-    favoritesStore.drivers.push(driverData)
-}
-
-function isFavorite(driverId) {
-    return favoritesStore.drivers.filter( driver => driver.id === driverId ).length > 0
 }
 
 onMounted( async () => {
@@ -70,12 +58,13 @@ onMounted( async () => {
                 <td>{{ driver.Constructors[0].name }}</td>
                 <td>{{ driver.points }}</td>
                 <td>{{ driver.wins }}</td>
-                <td v-if="isFavorite(driver.Driver.driverId)">★</td>
-                <td 
-                    v-else
-                    @click="handleSetFavoriteOnClick(driver.Driver)"
-                >
-                    ☆
+                <td>
+                    <FavoritesButton 
+                        :id="driver.Driver.driverId" 
+                        :name="`${driver.Driver.givenName} ${driver.Driver.familyName}`" 
+                        :url="`/driver/${driver.Driver.driverId}`" 
+                        type="drivers" 
+                    />
                 </td>
             </tr>
         </tbody>

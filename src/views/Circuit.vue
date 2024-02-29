@@ -33,9 +33,7 @@ function handleSetFavoriteOnClick(circuit) {
     const circuitData = {
         id: circuit.circuitId,
         name: circuit.circuitName,
-        url: `/circuit/${circuit.circuitId}`,
-        country: circuit.Location.country,
-        locality: circuit.Location.locality
+        url: `/circuit/${circuit.circuitId}`
     }
     favoritesStore.circuits.push(circuitData)
 }
