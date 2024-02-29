@@ -2,44 +2,40 @@
 import { defineProps } from 'vue'
 import { favorites } from '@/store/favorites'
 
-const props = defineProps({ 
-    id: String, 
-    name: String, 
-    url: String, 
+const props = defineProps({
+    id: String,
+    name: String,
+    url: String,
     type: String,
 })
 
 const favoritesStore = favorites()
+
+favoritesStore.$subscribe((mutation, state) => {
+    localStorage.setItem('favoritesStore', JSON.stringify(state))
+})
 
 function handleSetFavoriteOnClick() {
     const itemData = {
         name: props.name,
         url: props.url,
     }
-    favoritesStore[props.type][props.id] = itemData
-    console.log(JSON.stringify(favoritesStore), ' favortiesstore')
-    setLocalStore()
+
+    favoritesStore.$patch({[props.type]: {[props.id]: itemData}})
 }
 
 function handleRemoveFavortieOnClick() {
     delete favoritesStore[props.type][props.id]
-    setLocalStore()
 }
 
 function isFavorite() {
     return !!favoritesStore[props.type][props.id]
 }
-
-function setLocalStore() {
-    //TODO: se setea un array vacío
-    window.localStorage.setItem(`favoritesStore${props.type}`, JSON.stringify(favoritesStore[props.type]))
-}
-
 </script>
 
 <template>
     <span v-if="isFavorite()" @click="handleRemoveFavortieOnClick">★</span>
-    <span 
+    <span
         v-else
         @click="handleSetFavoriteOnClick"
     >
