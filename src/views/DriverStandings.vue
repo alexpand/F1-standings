@@ -2,14 +2,13 @@
 import { ref, onMounted } from 'vue'
 
 import { getDriversStandings } from '@/api/getDriversStandings'
-import { drivers, favorites } from '@/store'
+import { drivers } from '@/store'
 
 import FavoritesButton from '@/components/FavoritesButton.vue'
 
 import lang from '@/lang'
 
 const driversStore = drivers()
-const favoritesStore = favorites()
 
 const driverList = ref(null)
 
