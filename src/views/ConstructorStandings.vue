@@ -1,12 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getConstructorStandings } from '@/api/getConstructorStandings'
-import { constructors, favorites } from '@/store'
+import { constructors } from '@/store'
+
+import FavoritesButton from '@/components/FavoritesButton.vue'
 
 import lang from '@/lang'
 
 const constructorsStore = constructors()
-const favoritesStore = favorites()
 
 const constructorList = ref(null)
 
@@ -21,19 +22,6 @@ function getConstructors() {
 async function setConstructors() {
     constructorsStore.constructorList = await getConstructors()
     return constructorsStore.constructorList
-}
-
-function handleSetFavoriteOnClick(constructor) {
-    const constructorData = {
-        id: constructor.constructorId,
-        name: constructor.name,
-        url: `/constructor/${constructor.constructorId}`
-    }
-    favoritesStore.constructors.push(constructorData)
-}
-
-function isFavorite(constructorId) {
-    return favoritesStore.constructors.filter( constructor => constructor.id === constructorId ).length > 0
 }
 
 onMounted( async () => {
@@ -66,12 +54,13 @@ onMounted( async () => {
                 </td>
                 <td>{{ constructor.points }}</td>
                 <td>{{ constructor.wins }}</td>
-                <td v-if="isFavorite(constructor.Constructor.constructorId)">★</td>
-                <td 
-                    v-else
-                    @click="handleSetFavoriteOnClick(constructor.Constructor)"
-                >
-                    ☆
+                <td>
+                    <FavoritesButton 
+                        :id="constructor.Constructor.constructorId" 
+                        :name="constructor.Constructor.name" 
+                        :url="`/constructor/${constructor.Constructor.constructorId}`" 
+                        type="constructors" 
+                    />
                 </td>
             </tr>
         </tbody>

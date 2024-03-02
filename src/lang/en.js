@@ -17,5 +17,6 @@ export default {
     common_round: 'round',
     common_report: 'report',
     common_constructor: 'constructor',
-    common_description: 'description'
+    common_description: 'description',
+    common_favorite: 'favorite',
 }

@@ -1,18 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getCircuits } from '@/api/getCircuits'
-import { circuits, favorites } from '@/store'
+import { circuits } from '@/store'
+
+import FavoritesButton from '@/components/FavoritesButton.vue'
 
 import lang from '@/lang'
 
-// const circuitList = ref(null)
-
-// onMounted( async () => {
-//     circuitList.value = await getCircuits()
-// })
-
 const circuitsStore = circuits()
-const favoritesStore = favorites()
 
 const circuitList = ref(null)
 
@@ -27,19 +22,6 @@ function getAllCircuits() {
 async function setCircuits() {
     circuitsStore.circuitList = await getAllCircuits()
     return circuitsStore.circuitList
-}
-
-function handleSetFavoriteOnClick(circuit) {
-    const circuitData = {
-        id: circuit.circuitId,
-        name: circuit.circuitName,
-        url: `/circuit/${circuit.circuitId}`
-    }
-    favoritesStore.circuits.push(circuitData)
-}
-
-function isFavorite(circuitId) {
-    return favoritesStore.circuits.filter( circuit => circuit.id === circuitId ).length > 0
 }
 
 onMounted( async () => {
@@ -70,12 +52,13 @@ onMounted( async () => {
                 <td>{{ circuit.Location.locality }}</td>
                 <td>{{ circuit.Location.country }}</td>
                 <td><a :href="circuit.url">{{ lang.common_description }}</a></td>
-                <td v-if="isFavorite(circuit.circuitId)">★</td>
-                <td 
-                    v-else
-                    @click="handleSetFavoriteOnClick(circuit)"
-                >
-                    ☆
+                <td>
+                    <FavoritesButton 
+                        :id="circuit.circuitId" 
+                        :name="circuit.circuitName" 
+                        :url="`/circuit/${circuit.circuitId}`" 
+                        type="circuits" 
+                    />
                 </td>
             </tr>
         </tbody>
