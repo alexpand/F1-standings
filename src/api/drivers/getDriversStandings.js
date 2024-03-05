@@ -1,4 +1,4 @@
-import { endpoints } from '@/api/endpoints'
+import { endpoints } from '@/api/drivers/endpoints'
 
 export async function getDriversStandings() {
     const data = await fetch(endpoints.getDriverStandings)

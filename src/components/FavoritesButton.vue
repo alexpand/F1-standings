@@ -24,7 +24,7 @@ function handleSetFavoriteOnClick() {
     favoritesStore.$patch({[props.type]: {[props.id]: itemData}})
 }
 
-function handleRemoveFavortieOnClick() {
+function handleRemoveFavoriteOnClick() {
     delete favoritesStore[props.type][props.id]
 }
 
@@ -34,7 +34,7 @@ function isFavorite() {
 </script>
 
 <template>
-    <span v-if="isFavorite()" @click="handleRemoveFavortieOnClick">★</span>
+    <span v-if="isFavorite()" @click="handleRemoveFavoriteOnClick">★</span>
     <span
         v-else
         @click="handleSetFavoriteOnClick"

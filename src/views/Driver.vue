@@ -2,8 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { getDriverWins } from '@/api/getDriverWins'
-import { getDriverData } from '@/api/getDriverData'
+import { getDriverWins, getDriverData } from '@/api/drivers'
 
 const driver = useRoute().params.driverId
 
@@ -17,12 +16,12 @@ onMounted( async () => {
 
 </script>
 <template>
-    <article>
+    <article v-if="driverData && driverWins">
         <header>
             <h1>Driver</h1>
         </header>
         {{ driverData.givenName }} {{ driverData.familyName }}
-        <footer>
+        <footer v-if="driverWins.length">
             <table>
                 <thead>
                     <tr>
@@ -40,6 +39,8 @@ onMounted( async () => {
                 </tbody>
             </table>
         </footer>
+        <footer v-else>No hay victorias</footer>
     </article>
 
+    <article aria-busy="true" v-else></article>
 </template>

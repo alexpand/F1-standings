@@ -1,23 +1,12 @@
 <script setup>
+import NavBar from '@/components/NavBar.vue';
 </script>
 
 <template>
   <header>
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/driverstandings">Driver Standings</router-link>
-      <router-link to="/constructorstandings">Constructor Standings</router-link>
-      <router-link to="/results">Results</router-link>
-      <router-link to="/circuit">Circuit</router-link>
-      <router-link to="/calendar">Calendar</router-link>
-      <router-link to="/favorites">Favorites</router-link>
-    </nav>
+    <NavBar />
   </header>
   <article>
     <router-view></router-view>
   </article>
 </template>
-
-<style scoped>
-
-</style>
