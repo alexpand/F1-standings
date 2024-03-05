@@ -34,15 +34,15 @@ onMounted( async () => {
 </script>
 <template>
     <h1>Driver Standings</h1>
-    <article v-if="driverList">
+    <article v-if="driverList" class="u-overflow">
         <table v-if="driverList.length">
             <thead>
                 <tr>
-                    <th>{{ lang.common_position }}</th>
+                    <th><span class="u-hideMobile">{{ lang.common_position }}</span></th>
                     <th>{{ lang.common_driver }}</th>
                     <th>{{ lang.common_constructor }}</th>
                     <th>{{ lang.common_points }}</th>
-                    <th>{{ lang.common_wins }}</th>
+                    <th class="u-hideMobile">{{ lang.common_wins }}</th>
                     <th></th>
                 </tr>
             </thead>
@@ -57,7 +57,7 @@ onMounted( async () => {
                     </td>
                     <td>{{ driver.Constructors[0].name }}</td>
                     <td>{{ driver.points }}</td>
-                    <td>{{ driver.wins }}</td>
+                    <td class="u-hideMobile">{{ driver.wins }}</td>
                     <td>
                         <FavoritesButton 
                             :id="driver.Driver.driverId" 

@@ -1,0 +1,10 @@
+.u-overflow {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .u-hideMobile {
+        display: none
+    }
+}
