@@ -1,12 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+import lang from '@/lang'
+
 import { getDriversStandings } from '@/api/drivers/getDriversStandings'
 import { drivers } from '@/store'
 
 import FavoritesButton from '@/components/FavoritesButton.vue'
 
-import lang from '@/lang'
 
 const driversStore = drivers()
 
@@ -33,7 +34,7 @@ onMounted( async () => {
 
 </script>
 <template>
-    <h1>Driver Standings</h1>
+    <h1>{{ lang.common_driver_standings }}</h1>
     <article v-if="driverList" class="u-overflow">
         <table v-if="driverList.length">
             <thead>

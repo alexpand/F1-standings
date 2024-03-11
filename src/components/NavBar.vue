@@ -1,14 +1,16 @@
 <script setup>
 import { ref } from 'vue'
 
+import lang from '@/lang'
+
 const navLinks = [
   {name: 'Home', url: '/'},
-  {name: 'Driver Standings', url: '/driverStandings'},
-  {name: 'Constructor Standings', url: '/constructorstandings'},
-  {name: 'Results', url: '/results'},
-  {name: 'Circuit', url: '/circuit'},
-  {name: 'Calendar', url: '/calendar'},
-  {name: 'Favorites', url: '/favorites'},
+  {name: lang.common_driver_standings, url: '/driverStandings'},
+  {name: lang.common_constructor_standings, url: '/constructorstandings'},
+  {name: lang.common_results, url: '/results'},
+  {name: lang.common_circuit, url: '/circuit'},
+  {name: lang.common_calendar, url: '/calendar'},
+  {name: lang.common_favorites, url: '/favorites'},
 ]
 
 const isVisible = ref(false)
@@ -36,6 +38,7 @@ function toggleMenu() {
 
 a:hover, .router-link-exact-active {
     background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
   }
 
 @media (min-width: 1024px){

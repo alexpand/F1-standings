@@ -1,17 +1,19 @@
 <script setup>
 import { ref } from 'vue'
+
+import lang from '@/lang'
+
 import { favorites } from '@/store/favorites'
 
 import BackButton from '@/components/BackButton.vue'
 
-import lang from '@/lang'
 
 const favoritesStore = ref(favorites())
 
 </script>
 <template>
     <BackButton />
-    <h1>{{ lang.common_favorite }}</h1>
+    <h1>{{ lang.common_favorites }}</h1>
     <article>
         <h2>{{ lang.common_driver }}</h2>
         <ul>

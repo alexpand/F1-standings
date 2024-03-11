@@ -32,37 +32,39 @@ onMounted( async () => {
 
 </script>
 <template>
-    <h1>Constructor Standings</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>{{ lang.common_position }}</th>
-                <th>{{ lang.common_constructor }}</th>
-                <th>{{ lang.common_points }}</th>
-                <th>{{ lang.common_wins }}</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr 
-                v-for="constructor in constructorList" 
-                :key="constructor.Constructor.constructorId"
-            >
-                <td>{{ constructor.position }}</td>
-                <td>
-                    <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
-                </td>
-                <td>{{ constructor.points }}</td>
-                <td>{{ constructor.wins }}</td>
-                <td>
-                    <FavoritesButton 
-                        :id="constructor.Constructor.constructorId" 
-                        :name="constructor.Constructor.name" 
-                        :url="`/constructor/${constructor.Constructor.constructorId}`" 
-                        type="constructors" 
-                    />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <h1>{{ lang.common_constructor_standings }}</h1>
+    <article>
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ lang.common_position }}</th>
+                    <th>{{ lang.common_constructor }}</th>
+                    <th>{{ lang.common_points }}</th>
+                    <th>{{ lang.common_wins }}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                    v-for="constructor in constructorList" 
+                    :key="constructor.Constructor.constructorId"
+                >
+                    <td>{{ constructor.position }}</td>
+                    <td>
+                        <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
+                    </td>
+                    <td>{{ constructor.points }}</td>
+                    <td>{{ constructor.wins }}</td>
+                    <td>
+                        <FavoritesButton 
+                            :id="constructor.Constructor.constructorId" 
+                            :name="constructor.Constructor.name" 
+                            :url="`/constructor/${constructor.Constructor.constructorId}`" 
+                            type="constructors" 
+                        />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
 </template>

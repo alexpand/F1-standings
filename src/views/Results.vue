@@ -1,8 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getRaceResults } from '@/api/races/getRaceResults'
 
 import lang from '@/lang'
+
+import { getRaceResults } from '@/api/races/getRaceResults'
 
 const raceResults = ref(null)
 
@@ -11,7 +12,7 @@ onMounted( async () => {
 })
 </script>
 <template>
-    <h1>Results</h1>
+    <h1>{{ lang.common_results }}</h1>
     <article class="u-overflow">
         <table>
             <thead>

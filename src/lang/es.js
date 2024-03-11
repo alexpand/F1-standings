@@ -19,4 +19,9 @@ export default {
     common_constructor: 'constructor',
     common_description: 'descripción',
     common_favorite: 'favorito',
+    common_favorites: 'favoritos',
+    common_calendar: 'calendario',
+    common_driver_standings: 'clasificación de pilotos',
+    common_constructor_standings: 'clasificación de constructores',
+    common_results: 'resultados',
 }

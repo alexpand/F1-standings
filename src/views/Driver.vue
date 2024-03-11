@@ -2,7 +2,11 @@
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
+import lang from '@/lang'
+
 import { getDriverWins, getDriverData } from '@/api/drivers'
+
+import BackButton from '@/components/BackButton.vue'
 
 const driver = useRoute().params.driverId
 
@@ -16,18 +20,19 @@ onMounted( async () => {
 
 </script>
 <template>
+    <BackButton />
     <article v-if="driverData && driverWins">
         <header>
-            <h1>Driver</h1>
+            <h1>{{ lang.common_driver }}</h1>
         </header>
         {{ driverData.givenName }} {{ driverData.familyName }}
         <footer v-if="driverWins.length">
             <table>
                 <thead>
                     <tr>
-                        <th>Season</th>
-                        <th>Race Name</th>
-                        <th>Constructor</th>    
+                        <th>{{ lang.common_season }}</th>
+                        <th>{{ lang.common_race_name }}</th>
+                        <th>{{ lang.common_constructor }}</th>    
                     </tr>
                 </thead>
                 <tbody>
