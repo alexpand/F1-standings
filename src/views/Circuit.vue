@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getCircuits } from '@/api/getCircuits'
+import { getCircuits } from '@/api/circuits/getCircuits'
 import { circuits } from '@/store'
 
 import FavoritesButton from '@/components/FavoritesButton.vue'

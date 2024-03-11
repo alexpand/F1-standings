@@ -1,4 +1,4 @@
-import { endpoints } from '@/api/endpoints'
+import { endpoints } from '@/api/constructors/endpoints'
 
 export async function getConstructorStandings() {
     const data = await fetch(endpoints.getConstructorStandings)

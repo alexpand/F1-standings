@@ -1,4 +1,4 @@
-import { endpoints } from '@/api/endpoints'
+import { endpoints } from '@/api/races/endpoints'
 
 export async function getRaceResults() {
     const data = await fetch(endpoints.getRaceResults)

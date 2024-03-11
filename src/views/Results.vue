@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getRaceResults } from '@/api/getRaceResults'
+import { getRaceResults } from '@/api/races/getRaceResults'
 
 import lang from '@/lang'
 

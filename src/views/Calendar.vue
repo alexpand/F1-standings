@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getSchedule } from '@/api/getSchedule'
+import { getSchedule } from '@/api/schedules/getSchedule'
 
 import lang from '@/lang'
 

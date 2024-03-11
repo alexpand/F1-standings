@@ -1,4 +1,4 @@
-import { endpoints } from '@/api/endpoints'
+import { endpoints } from '@/api/circuits/endpoints'
 
 export async function getCircuits() {
     const data = await fetch(endpoints.getCircuits)

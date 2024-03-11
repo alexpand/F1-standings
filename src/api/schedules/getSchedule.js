@@ -1,4 +1,4 @@
-import { endpoints } from '@/api/endpoints'
+import { endpoints } from '@/api/schedules/endpoints'
 
 export async function getSchedule() {
     const data = await fetch(endpoints.getSchedule)

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getConstructorStandings } from '@/api/getConstructorStandings'
+import { getConstructorStandings } from '@/api/constructors/getConstructorStandings'
 import { constructors } from '@/store'
 
 import FavoritesButton from '@/components/FavoritesButton.vue'
