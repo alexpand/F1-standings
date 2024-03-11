@@ -33,7 +33,7 @@ onMounted( async () => {
 </script>
 <template>
     <h1>{{ lang.common_circuit }}</h1>
-    <article>
+    <article v-if="circuitList" class="u-overflow">
         <table>
             <thead>
                 <tr>
@@ -65,4 +65,6 @@ onMounted( async () => {
             </tbody>
         </table>
     </article>
+
+    <article aria-busy="true" v-else></article>
 </template>

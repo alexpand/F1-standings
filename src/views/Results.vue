@@ -13,7 +13,7 @@ onMounted( async () => {
 </script>
 <template>
     <h1>{{ lang.common_results }}</h1>
-    <article class="u-overflow">
+    <article v-if="raceResults" class="u-overflow">
         <table>
             <thead>
                 <tr>
@@ -35,8 +35,12 @@ onMounted( async () => {
                 >
                     <td>{{ race.position }}</td>
                     <td>{{ race.number }}</td>
-                    <td>{{ `${race.Driver.givenName} ${race.Driver.familyName}` }}</td>
-                    <td>{{ race.Constructor.name }}</td>
+                    <td>
+                        <router-link :to="`/driver/${race.Driver.driverId}`">{{ `${race.Driver.givenName} ${race.Driver.familyName}` }}</router-link>
+                    </td>
+                    <td>
+                        <router-link :to="`/constructor/${race.Constructor.constructorId}`">{{ race.Constructor.name }}</router-link>
+                    </td>
                     <td>{{ race.laps }}</td>
                     <td>{{ race.grid }}</td>
                     <td>{{ race.Time?.time }}</td>
@@ -46,4 +50,6 @@ onMounted( async () => {
             </tbody>
         </table>
     </article>
+
+    <article aria-busy="true" v-else></article>
 </template>

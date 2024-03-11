@@ -33,7 +33,7 @@ onMounted( async () => {
 </script>
 <template>
     <h1>{{ lang.common_constructor_standings }}</h1>
-    <article>
+    <article v-if="constructorList" class="u-overflow">
         <table>
             <thead>
                 <tr>
@@ -67,4 +67,6 @@ onMounted( async () => {
             </tbody>
         </table>
     </article>
+
+    <article aria-busy="true" v-else></article>
 </template>

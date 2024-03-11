@@ -24,4 +24,8 @@ export default {
     common_driver_standings: 'clasificación de pilotos',
     common_constructor_standings: 'clasificación de constructores',
     common_results: 'resultados',
+    common_no_wins: 'aún no hay victorias',
+    common_no_drivers: 'aún no hay pilotos',
+    common_no_constructors: 'aún no hay constructores',
+    common_no_circuits: 'aún no hay circuitos',
 }

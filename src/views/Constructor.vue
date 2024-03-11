@@ -6,6 +6,7 @@ import lang from '@/lang'
 import BackButton from '@/components/BackButton.vue'
 
 const constructor = useRoute().params.constructorId
+
 </script>
 <template>
     <BackButton />

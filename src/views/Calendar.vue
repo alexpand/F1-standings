@@ -13,7 +13,7 @@ onMounted( async () => {
 </script>
 <template>
     <h1>{{ lang.common_calendar }}</h1>
-    <article>
+    <article v-if="schedule" class="u-overflow">
         <table>
             <thead>
                 <tr>
@@ -44,4 +44,6 @@ onMounted( async () => {
             </tbody>
         </table>
     </article>
+
+    <article aria-busy="true" v-else></article>
 </template>

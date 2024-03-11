@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import { favorites } from '@/store/favorites'
 
 const props = defineProps({

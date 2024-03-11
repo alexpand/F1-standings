@@ -21,12 +21,12 @@ onMounted( async () => {
 </script>
 <template>
     <BackButton />
-    <article v-if="driverData && driverWins">
+    <article v-if="driverData && driverWins" class="u-overflow">
         <header>
             <h1>{{ lang.common_driver }}</h1>
         </header>
         {{ driverData.givenName }} {{ driverData.familyName }}
-        <footer v-if="driverWins.length">
+        <footer v-if="driverWins.length && false">
             <table>
                 <thead>
                     <tr>
@@ -39,12 +39,14 @@ onMounted( async () => {
                     <tr v-for="(result, idx) in driverWins" :key="`${driver}_${idx}`">
                         <td>{{ result.season }}</td>
                         <td>{{ result.raceName }}</td>
-                        <td>{{ result.Results[0].Constructor.name }}</td>
+                        <td>
+                            <router-link :to="`/constructor/${result.Results[0].Constructor.constructorId}`">{{ result.Results[0].Constructor.name }}</router-link>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </footer>
-        <footer v-else>No hay victorias</footer>
+        <footer v-else>{{ lang.common_no_wins }}</footer>
     </article>
 
     <article aria-busy="true" v-else></article>

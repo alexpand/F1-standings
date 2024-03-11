@@ -56,7 +56,9 @@ onMounted( async () => {
                     <td>
                         <router-link :to="`/driver/${driver.Driver.driverId}`">{{ `${driver.Driver.givenName} ${driver.Driver.familyName}` }}</router-link>
                     </td>
-                    <td>{{ driver.Constructors[0].name }}</td>
+                    <td>
+                        <router-link :to="`/constructor/${driver.Constructors[0].constructorId}`">{{ driver.Constructors[0].name }}</router-link>
+                    </td>
                     <td>{{ driver.points }}</td>
                     <td class="u-hideMobile">{{ driver.wins }}</td>
                     <td>

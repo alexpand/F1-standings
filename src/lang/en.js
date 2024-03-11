@@ -24,4 +24,8 @@ export default {
     common_driver_standings: 'Driver Standings',
     common_constructor_standings: 'constructor standings',
     common_results: 'results',
+    common_no_wins: 'no wins yet',
+    common_no_drivers: 'no drivers yet',
+    common_no_constructors: 'no constructors yet',
+    common_no_circuits: 'no circuits yet',
 }
