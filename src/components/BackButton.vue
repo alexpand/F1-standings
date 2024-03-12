@@ -5,5 +5,11 @@ function goBack() {
 
 </script>
 <template>
-    <button @click="goBack">↩</button>
+    <span class="button--icon" @click="goBack">
+        <img 
+            src="@/assets/back-arrow.svg" 
+            alt="back arrow"
+            width="32"
+        >
+    </span>
 </template>

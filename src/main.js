@@ -5,6 +5,7 @@ import { router } from '@/router/routes'
 import App from '@/App.vue'
 
 import '@/assets/utilities.css'
+import '@/assets/globals.css'
 
 const state = createPinia()
 

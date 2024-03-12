@@ -1,19 +1,21 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getSchedule } from '@/api/schedules/getSchedule'
+import { getSchedule, getRoundResults } from '@/api/schedules'
 
 import lang from '@/lang'
 
 const schedule = ref(null)
+const roundResults = ref(null)
 
 onMounted( async () => {
     schedule.value = await getSchedule()
+    roundResults.value = await getRoundResults()
 })
 
 </script>
 <template>
     <h1>{{ lang.common_calendar }}</h1>
-    <article v-if="schedule" class="u-overflow">
+    <article v-if="schedule && roundResults" class="u-overflow">
         <table>
             <thead>
                 <tr>
@@ -23,7 +25,7 @@ onMounted( async () => {
                     <th>{{ lang.common_date }}</th>
                     <th>{{ lang.common_time }}</th>
                     <th>{{ lang.common_sprint }}</th>
-                    <th>{{ lang.common_circuit }}</th>
+                    <th>{{ lang.common_circuit() }}</th>
                     <th>{{ lang.common_information }}</th>
                 </tr>
             </thead>
@@ -39,7 +41,14 @@ onMounted( async () => {
                     <td>{{ race.time }}</td>
                     <td>{{ race.Sprint?.date }}</td>
                     <td>{{ race.Circuit.circuitName }}</td>
-                    <td><a :href="race.url">{{ lang.common_report }}</a></td>
+                    <td>
+                        <router-link
+                            v-if="roundResults[index]"
+                            :to="`/results/${race.round}`"
+                        >
+                            {{ lang.common_results }}
+                        </router-link>
+                    </td>
                 </tr>
             </tbody>
         </table>

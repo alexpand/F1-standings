@@ -1,10 +1,10 @@
 import { endpoints } from '@/api/races/endpoints'
 
-export async function getRaceResults() {
-    const data = await fetch(endpoints.getRaceResults)
+export async function getRaceResults(round) {
+    const data = await fetch(endpoints.getRaceResults(round))
     .then( async (response) => {
         const data = await response.json()
-        return data.MRData.RaceTable.Races[0].Results
+        return data.MRData.RaceTable.Races[0]
     })
     .catch( error => {console.error(error)} )
     

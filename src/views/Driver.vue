@@ -20,11 +20,11 @@ onMounted( async () => {
 
 </script>
 <template>
-    <BackButton />
+    <div class="header--backbutton">
+        <BackButton />
+        <h1>{{ lang.common_driver }}</h1>
+    </div>
     <article v-if="driverData && driverWins" class="u-overflow">
-        <header>
-            <h1>{{ lang.common_driver }}</h1>
-        </header>
         {{ driverData.givenName }} {{ driverData.familyName }}
         <footer v-if="driverWins.length && false">
             <table>

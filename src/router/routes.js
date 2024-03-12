@@ -19,6 +19,7 @@ export const router = createRouter({
         {path: '/driver/:driverId', name: 'Driver', component: Driver},
         {path: '/driverstandings', name: 'DriverStandings', component: DriverStandings},
         {path: '/results', name: 'Results', component: Results},
+        {path: '/results/:round', name: 'Result', component: Results},
         {path: '/favorites', name: 'Favorites', component: Favorites},
         {path: '/circuit', name: 'Circuit', component: Circuit},
         {path: '/calendar', name: 'Calendar', component: Calendar},

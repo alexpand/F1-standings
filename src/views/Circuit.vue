@@ -1,7 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+
 import { getCircuits } from '@/api/circuits/getCircuits'
 import { circuits } from '@/store'
+import updateTitle from '@/composables/pageTitle'
 
 import FavoritesButton from '@/components/FavoritesButton.vue'
 
@@ -25,6 +27,8 @@ async function setCircuits() {
 }
 
 onMounted( async () => {
+    updateTitle(lang.common_circuit(2))
+
     circuitList.value = hasCircuits() 
         ? circuitsStore.circuitList 
         : await setCircuits()
@@ -32,12 +36,12 @@ onMounted( async () => {
 
 </script>
 <template>
-    <h1>{{ lang.common_circuit }}</h1>
+    <h1>{{ lang.common_circuit(2) }}</h1>
     <article v-if="circuitList" class="u-overflow">
         <table>
             <thead>
                 <tr>
-                    <th>{{ lang.common_circuit }}</th>
+                    <th>{{ lang.common_circuit() }}</th>
                     <th>{{ lang.common_locality }}</th>
                     <th>{{ lang.common_country }}</th>
                     <th>{{ lang.common_information }}</th>
