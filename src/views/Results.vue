@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 import lang from '@/lang'
 
 import { getRaceResults } from '@/api/races/getRaceResults'
+import updateTitle from '@/composables/pageTitle'
 
 import BackButton from '@/components/BackButton.vue'
 
@@ -17,6 +18,8 @@ const raceResults = ref(null)
 const round = useRoute().params.round || LABELS.last
 
 onMounted( async () => {
+    updateTitle(lang.common_results)
+
     raceResults.value = await getRaceResults(round)
 })
 </script>
@@ -35,8 +38,8 @@ onMounted( async () => {
                 <tr>
                     <th>{{ lang.common_position }}</th>
                     <th>Nº</th>
-                    <th>{{ lang.common_driver }}</th>
-                    <th>{{ lang.common_constructor }}</th>
+                    <th>{{ lang.common_driver() }}</th>
+                    <th>{{ lang.common_constructor() }}</th>
                     <th>{{ lang.common_laps }}</th>
                     <th>{{ lang.common_grid }}</th>
                     <th>{{ lang.common_time }}</th>

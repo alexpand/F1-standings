@@ -5,6 +5,7 @@ import lang from '@/lang'
 
 import { getDriversStandings } from '@/api/drivers/getDriversStandings'
 import { drivers } from '@/store'
+import updateTitle from '@/composables/pageTitle'
 
 import FavoritesButton from '@/components/FavoritesButton.vue'
 
@@ -27,6 +28,8 @@ async function setDrivers() {
 }
 
 onMounted( async () => {
+    updateTitle(lang.common_driver_standings)
+
     driverList.value = hasDrivers() 
         ? driversStore.driverList 
         : await setDrivers()
@@ -40,8 +43,8 @@ onMounted( async () => {
             <thead>
                 <tr>
                     <th><span class="u-hideMobile">{{ lang.common_position }}</span></th>
-                    <th>{{ lang.common_driver }}</th>
-                    <th>{{ lang.common_constructor }}</th>
+                    <th>{{ lang.common_driver() }}</th>
+                    <th>{{ lang.common_constructor() }}</th>
                     <th>{{ lang.common_points }}</th>
                     <th class="u-hideMobile">{{ lang.common_wins }}</th>
                     <th></th>

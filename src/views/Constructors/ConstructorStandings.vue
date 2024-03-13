@@ -1,7 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+
 import { getConstructorStandings } from '@/api/constructors/getConstructorStandings'
 import { constructors } from '@/store'
+import updateTitle from '@/composables/pageTitle'
 
 import FavoritesButton from '@/components/FavoritesButton.vue'
 
@@ -25,6 +27,8 @@ async function setConstructors() {
 }
 
 onMounted( async () => {
+    updateTitle(lang.common_constructor_standings)
+
     constructorList.value = hasConstructors() 
         ? constructorsStore.constructorList 
         : await setConstructors()
@@ -38,7 +42,7 @@ onMounted( async () => {
             <thead>
                 <tr>
                     <th>{{ lang.common_position }}</th>
-                    <th>{{ lang.common_constructor }}</th>
+                    <th>{{ lang.common_constructor() }}</th>
                     <th>{{ lang.common_points }}</th>
                     <th>{{ lang.common_wins }}</th>
                     <th></th>

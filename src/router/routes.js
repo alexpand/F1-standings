@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '@/views/Home.vue'
-import Driver from '@/views/Driver.vue'
-import DriverStandings from '@/views/DriverStandings.vue'
+import Driver from '@/views/Drivers/Driver.vue'
+import DriverStandings from '@/views/Drivers/DriverStandings.vue'
 import Results from '@/views/Results.vue'
 import Favorites from '@/views/Favorites.vue'
 import Circuit from '@/views/Circuit.vue'
 import Calendar from '@/views/Calendar.vue'
-import Constructor from '@/views/Constructor.vue'
-import ConstructorStandings from '@/views/ConstructorStandings.vue'
+import Constructor from '@/views/Constructors/Constructor.vue'
+import ConstructorStandings from '@/views/Constructors/ConstructorStandings.vue'
 
 export const router = createRouter({
     history: createWebHistory(),

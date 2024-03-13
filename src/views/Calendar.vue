@@ -2,12 +2,16 @@
 import { ref, onMounted } from 'vue'
 import { getSchedule, getRoundResults } from '@/api/schedules'
 
+import updateTitle from '@/composables/pageTitle'
+
 import lang from '@/lang'
 
 const schedule = ref(null)
 const roundResults = ref(null)
 
 onMounted( async () => {
+    updateTitle(lang.common_calendar)
+
     schedule.value = await getSchedule()
     roundResults.value = await getRoundResults()
 })

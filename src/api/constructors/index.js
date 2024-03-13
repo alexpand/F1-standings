@@ -1,5 +1,7 @@
-import { getConstructorsStandings } from '@/api/constructors/getConstructorsStandings'
+import { getConstructorStandings } from '@/api/constructors/getConstructorStandings'
+import { getConstructorData } from '@/api/constructors/getConstructorData'
 
 export {
-    getConstructorsStandings,
+    getConstructorStandings,
+    getConstructorData,
 }

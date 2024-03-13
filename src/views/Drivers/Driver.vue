@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 import lang from '@/lang'
 
 import { getDriverWins, getDriverData } from '@/api/drivers'
+import updateTitle from '@/composables/pageTitle'
 
 import BackButton from '@/components/BackButton.vue'
 
@@ -14,6 +15,8 @@ const driverWins = ref(null)
 const driverData = ref(null)
 
 onMounted( async () => {
+    updateTitle(lang.common_driver())
+
     driverWins.value = await getDriverWins(driver)
     driverData.value = await getDriverData(driver)
 })
@@ -22,7 +25,7 @@ onMounted( async () => {
 <template>
     <div class="header--backbutton">
         <BackButton />
-        <h1>{{ lang.common_driver }}</h1>
+        <h1>{{ lang.common_driver() }}</h1>
     </div>
     <article v-if="driverData && driverWins" class="u-overflow">
         {{ driverData.givenName }} {{ driverData.familyName }}
@@ -32,7 +35,7 @@ onMounted( async () => {
                     <tr>
                         <th>{{ lang.common_season }}</th>
                         <th>{{ lang.common_race_name }}</th>
-                        <th>{{ lang.common_constructor }}</th>    
+                        <th>{{ lang.common_constructor() }}</th>    
                     </tr>
                 </thead>
                 <tbody>
