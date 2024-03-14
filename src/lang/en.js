@@ -27,4 +27,6 @@ export default {
     common_no_drivers: 'no drivers yet',
     common_no_constructors: 'no constructors yet',
     common_no_circuits: 'no circuits yet',
+    common_home: 'home',
+    common_number: 'number',
 }

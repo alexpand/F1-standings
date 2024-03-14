@@ -27,4 +27,6 @@ export default {
     common_no_drivers: 'aún no hay pilotos',
     common_no_constructors: 'aún no hay constructores',
     common_no_circuits: 'aún no hay circuitos',
+    common_home: 'inicio',
+    common_number: 'número',
 }

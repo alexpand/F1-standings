@@ -14,9 +14,16 @@ const navLinks = [
 ]
 
 const isVisible = ref(false)
+const isFirstLoad = ref(true)
 
 function toggleMenu() {
   isVisible.value = !isVisible.value
+  isFirstLoad.value = false
+}
+
+function closeMenu() {
+  isVisible.value = false
+  isFirstLoad.value = true
 }
 
 </script>
@@ -30,9 +37,9 @@ function toggleMenu() {
           width="64"
         >
       </span>
-      <ul :class="{'visible': isVisible}">
+      <ul :class="{'visible': isVisible, 'noVisible': !isFirstLoad && !isVisible}">
         <li v-for="link in navLinks" :key="link.url">
-          <router-link :to="link.url">{{ link.name }}</router-link>
+          <router-link :to="link.url" @click="closeMenu">{{ link.name }}</router-link>
         </li>
       </ul>
     </nav>
@@ -42,6 +49,7 @@ function toggleMenu() {
 
 nav {
   margin-block-end: 1em;
+  --navHeight: calc(3.5rem * 7);
 }
 
 a::first-letter {
@@ -54,14 +62,19 @@ a:hover, .router-link-exact-active {
   }
 
 @media (min-width: 1024px){
-  button {
+  .button--icon {
     display: none;
   }
 }
 
 @media (max-width: 1023px) {
   ul {
-    display: none;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    animation-duration: 1s;
   }
 
   nav {
@@ -73,21 +86,32 @@ a:hover, .router-link-exact-active {
   }
 
   .visible {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    animation-name: slide;
-    animation-duration: 1s;
+    height: var(--navHeight);
+    animation-name: slideDown;
+  }
+
+  .noVisible {
+    animation-name: slideUp;
   }
 }
 
-@keyframes slide {
+@keyframes slideDown {
   from {
     height: 0;
   }
 
   to {
-    height: 100dvh;
+    height: var(--navHeight);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--navHeight);
+  }
+
+  to {
+    height: 0;
   }
 }
 
