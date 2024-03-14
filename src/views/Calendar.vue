@@ -23,11 +23,10 @@ onMounted( async () => {
         <table>
             <thead>
                 <tr>
-                    <th>{{ lang.common_season }}</th>
-                    <th>{{ lang.common_round }}</th>
+                    <th class="u-hideMobile">{{ lang.common_round }}</th>
                     <th>{{ lang.common_race_name }}</th>
                     <th>{{ lang.common_date }}</th>
-                    <th>{{ lang.common_time }}</th>
+                    <th class="u-hideMobile">{{ lang.common_time }}</th>
                     <th>{{ lang.common_sprint }}</th>
                     <th>{{ lang.common_circuit() }}</th>
                     <th>{{ lang.common_information }}</th>
@@ -38,11 +37,10 @@ onMounted( async () => {
                     v-for="(race, index) in schedule"
                     :key="race.raceName + index"
                 >
-                    <td>{{ race.season }}</td>
-                    <td>{{ race.round }}</td>
+                    <td class="u-hideMobile">{{ race.round }}</td>
                     <td>{{ race.raceName }}</td>
                     <td>{{ race.date }}</td>
-                    <td>{{ race.time }}</td>
+                    <td class="u-hideMobile">{{ race.time }}</td>
                     <td>{{ race.Sprint?.date }}</td>
                     <td>{{ race.Circuit.circuitName }}</td>
                     <td>
