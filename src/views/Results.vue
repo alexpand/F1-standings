@@ -36,14 +36,14 @@ onMounted( async () => {
         <table>
             <thead>
                 <tr>
-                    <th>{{ lang.common_position }}</th>
-                    <th>Nº</th>
+                    <th class="u-hideMobile">{{ lang.common_position }}</th>
+                    <th class="u-hideMobile">Nº</th>
                     <th>{{ lang.common_driver() }}</th>
                     <th>{{ lang.common_constructor() }}</th>
-                    <th>{{ lang.common_laps }}</th>
+                    <th class="u-hideMobile">{{ lang.common_laps }}</th>
                     <th>{{ lang.common_grid }}</th>
                     <th>{{ lang.common_time }}</th>
-                    <th>{{ lang.common_status }}</th>
+                    <th class="u-hideMobile">{{ lang.common_status }}</th>
                     <th>{{ lang.common_points }}</th>
                 </tr>
             </thead>
@@ -52,18 +52,18 @@ onMounted( async () => {
                     v-for="race in raceResults.Results"
                     :key="race.position"
                 >
-                    <td>{{ race.position }}</td>
-                    <td>{{ race.number }}</td>
+                    <td class="u-hideMobile">{{ race.position }}</td>
+                    <td class="u-hideMobile">{{ race.number }}</td>
                     <td>
                         <router-link :to="`/driver/${race.Driver.driverId}`">{{ `${race.Driver.givenName} ${race.Driver.familyName}` }}</router-link>
                     </td>
                     <td>
                         <router-link :to="`/constructor/${race.Constructor.constructorId}`">{{ race.Constructor.name }}</router-link>
                     </td>
-                    <td>{{ race.laps }}</td>
+                    <td class="u-hideMobile">{{ race.laps }}</td>
                     <td>{{ race.grid }}</td>
                     <td>{{ race.Time?.time }}</td>
-                    <td>{{ race.status }}</td>
+                    <td class="u-hideMobile">{{ race.status }}</td>
                     <td>{{ race.points }}</td>
                 </tr>
             </tbody>

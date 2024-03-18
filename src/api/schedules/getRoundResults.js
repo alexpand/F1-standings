@@ -6,5 +6,7 @@ export async function getRoundResults() {
         const data = await response.json()
         return data.MRData.RaceTable.Races
     })
-    return data
+    .catch( error => {console.error(error)} )
+
+    return data || []
 }

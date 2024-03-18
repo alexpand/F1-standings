@@ -2,19 +2,19 @@
 import { ref, onMounted } from 'vue'
 
 import { getDriversStandings } from '@/api/drivers/getDriversStandings'
-// import { getConstructorsStandings } from '@/api/constructors/getConstructorsStandings'
-// import { getCircuits } from '@/api/circuits/getCircuits'
+import { getConstructorStandings } from '@/api/constructors/getConstructorStandings'
+import { getCircuits } from '@/api/circuits/getCircuits'
 
 import lang from '@/lang'
 
 const driverList = ref(null)
-// const constructorList = ref(null)
-// const driverList = ref(null)
+const constructorList = ref(null)
+const circuitList = ref(null)
 
 onMounted( async () => {
     driverList.value = await getDriversStandings()
-    // driverList.value = await getDriversStandings()
-    // driverList.value = await getDriversStandings()
+    constructorList.value = await getConstructorStandings()
+    circuitList.value = await getCircuits()
 })
 
 </script>
@@ -22,7 +22,7 @@ onMounted( async () => {
 <template>
     <h1>{{ lang.common_home }}</h1>
     <article>
-        <h2>{{ lang.common_drivers }}</h2>
+        <h2>{{ lang.common_driver(2) }}</h2>
         <article v-if="driverList" class="u-overflow">
             <table>
                 <tbody>
@@ -40,21 +40,38 @@ onMounted( async () => {
         </article>
     </article>
     <article>
-        <h2>Constructor</h2>
-        <!-- <ul v-if="Object.keys(favoritesStore.drivers).length">
-            <li v-for="driver in favoritesStore.drivers">
-                <router-link :to="driver.url">{{ driver.name }}</router-link>
-            </li>
-        </ul> -->
-        <!-- <p v-else>{{ lang.common_no_drivers }}</p> -->
+        <h2>{{ lang.common_constructor(2) }}</h2>
+        <article v-if="constructorList" class="u-overflow">
+            <table>
+                <tbody>
+                    <tr
+                        v-for="constructor in constructorList.slice(0, 3)"
+                        :key="constructor.Constructor.constructorId"
+                    >
+                        <td>
+                            <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
+                        </td>
+                        <td>{{ constructor.points }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
     </article>
     <article>
-        <h2>CIrcuit</h2>
-        <!-- <ul v-if="Object.keys(favoritesStore.drivers).length">
-            <li v-for="driver in favoritesStore.drivers">
-                <router-link :to="driver.url">{{ driver.name }}</router-link>
-            </li>
-        </ul> -->
-        <!-- <p v-else>{{ lang.common_no_drivers }}</p> -->
+        <h2>{{ lang.common_circuit(2) }}</h2>
+        <article v-if="circuitList" class="u-overflow">
+            <table>
+                <tbody>
+                    <tr
+                        v-for="circuit in circuitList.slice(0, 3)"
+                        :key="circuit.circuitId"
+                    >
+                        <td>
+                            <a :href="circuit.url">{{ circuit.circuitName }}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
     </article>
 </template>

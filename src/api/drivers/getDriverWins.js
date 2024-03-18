@@ -6,5 +6,7 @@ export async function getDriverWins(id) {
         const data = await response.json()
         return data.MRData.RaceTable.Races.reverse()
     })
-    return data
+    .catch( error => {console.error(error)} )
+
+    return data || []
 }

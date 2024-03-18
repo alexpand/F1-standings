@@ -6,5 +6,7 @@ export async function getConstructorDrivers(id) {
         const data = await response.json()
         return data.MRData.DriverTable.Drivers
     })
-    return data
+    .catch( error => {console.error(error)} )
+
+    return data || []
 }

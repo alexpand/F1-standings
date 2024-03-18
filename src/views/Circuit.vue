@@ -42,9 +42,9 @@ onMounted( async () => {
             <thead>
                 <tr>
                     <th>{{ lang.common_circuit() }}</th>
-                    <th>{{ lang.common_locality }}</th>
+                    <th class="u-hideMobile">{{ lang.common_locality }}</th>
                     <th>{{ lang.common_country }}</th>
-                    <th>{{ lang.common_information }}</th>
+                    <th class="u-hideMobile">{{ lang.common_information }}</th>
                     <th></th>
                 </tr>
             </thead>
@@ -54,9 +54,9 @@ onMounted( async () => {
                     :key="circuit.circuitId"
                 >
                     <td>{{ circuit.circuitName }}</td>
-                    <td>{{ circuit.Location.locality }}</td>
+                    <td class="u-hideMobile">{{ circuit.Location.locality }}</td>
                     <td>{{ circuit.Location.country }}</td>
-                    <td><a :href="circuit.url">{{ lang.common_description }}</a></td>
+                    <td class="u-hideMobile"><a :href="circuit.url">{{ lang.common_description }}</a></td>
                     <td>
                         <FavoritesButton 
                             :id="circuit.circuitId" 

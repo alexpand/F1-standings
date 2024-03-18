@@ -27,7 +27,7 @@ onMounted( async () => {
                     <th>{{ lang.common_race_name }}</th>
                     <th>{{ lang.common_date }}</th>
                     <th class="u-hideMobile">{{ lang.common_time }}</th>
-                    <th>{{ lang.common_sprint }}</th>
+                    <th class="u-hideMobile">{{ lang.common_sprint }}</th>
                     <th>{{ lang.common_circuit() }}</th>
                     <th>{{ lang.common_information }}</th>
                 </tr>
@@ -41,7 +41,7 @@ onMounted( async () => {
                     <td>{{ race.raceName }}</td>
                     <td>{{ race.date }}</td>
                     <td class="u-hideMobile">{{ race.time }}</td>
-                    <td>{{ race.Sprint?.date }}</td>
+                    <td class="u-hideMobile">{{ race.Sprint?.date }}</td>
                     <td>{{ race.Circuit.circuitName }}</td>
                     <td>
                         <router-link

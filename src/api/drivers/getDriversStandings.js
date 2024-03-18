@@ -6,5 +6,7 @@ export async function getDriversStandings() {
         const data = await response.json()
         return data.MRData.StandingsTable.StandingsLists[0].DriverStandings
     })
-    return data
+    .catch( error => {console.error(error)} )
+
+    return data || []
 }

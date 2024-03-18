@@ -51,5 +51,7 @@ onMounted( async () => {
                 </tbody>
             </table>
         </article>
+
+        <article aria-busy="true" v-else></article>
     </article>
 </template>

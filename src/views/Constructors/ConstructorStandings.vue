@@ -41,7 +41,7 @@ onMounted( async () => {
         <table>
             <thead>
                 <tr>
-                    <th>{{ lang.common_position }}</th>
+                    <th class="u-hideMobile">{{ lang.common_position }}</th>
                     <th>{{ lang.common_constructor() }}</th>
                     <th>{{ lang.common_points }}</th>
                     <th>{{ lang.common_wins }}</th>
@@ -53,7 +53,7 @@ onMounted( async () => {
                     v-for="constructor in constructorList" 
                     :key="constructor.Constructor.constructorId"
                 >
-                    <td>{{ constructor.position }}</td>
+                    <td class="u-hideMobile">{{ constructor.position }}</td>
                     <td>
                         <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
                     </td>

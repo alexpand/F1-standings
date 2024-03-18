@@ -6,5 +6,7 @@ export async function getConstructorData(id) {
         const data = await response.json()
         return data.MRData.ConstructorTable.Constructors[0]
     })
+    .catch( error => {console.error(error)} )
+
     return data
 }

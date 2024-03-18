@@ -6,5 +6,7 @@ export async function getDriverData(id) {
         const data = await response.json()
         return data.MRData.DriverTable.Drivers[0]
     })
+    .catch( error => {console.error(error)} )
+
     return data
 }

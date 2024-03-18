@@ -1,4 +1,4 @@
-h1::first-letter {
+h1, h2::first-letter {
     text-transform: capitalize;
 }
 
