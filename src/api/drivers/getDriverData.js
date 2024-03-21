@@ -8,5 +8,5 @@ export async function getDriverData(id) {
     })
     .catch( error => {console.error(error)} )
 
-    return data
+    return data || {}
 }

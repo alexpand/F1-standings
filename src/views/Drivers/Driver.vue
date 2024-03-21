@@ -29,7 +29,7 @@ onMounted( async () => {
     </div>
     <article v-if="driverData && driverWins" class="u-overflow">
         {{ driverData.givenName }} {{ driverData.familyName }}
-        <footer v-if="driverWins.length && false">
+        <footer v-if="driverWins.length">
             <table>
                 <thead>
                     <tr>

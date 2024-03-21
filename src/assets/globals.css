@@ -1,7 +1,3 @@
-h1, h2::first-letter {
-    text-transform: capitalize;
-}
-
 body > main {
     padding-block-start: 0;
 }
@@ -10,8 +6,20 @@ h1 {
     margin-block-end: 0.8rem;
 }
 
+h1::first-letter,
+h2::first-letter {
+    text-transform: capitalize;
+}
+
 .container {
     max-width: 95%;
+}
+
+.header-navigation {
+    position: sticky;
+    inset-block-start: 0;
+    background-color: var(--pico-background-color);
+    z-index: 2;
 }
 
 .button--icon {
