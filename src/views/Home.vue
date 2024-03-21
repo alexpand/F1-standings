@@ -31,7 +31,7 @@ onMounted( async () => {
                         :key="driver.Driver.driverId"
                     >
                         <td>
-                            <router-link :to="`/driver/${driver.Driver.driverId}`">{{ `${driver.Driver.givenName} ${driver.Driver.familyName}` }}</router-link>
+                            <router-link data-test="driver-lead" :to="`/driver/${driver.Driver.driverId}`">{{ `${driver.Driver.givenName} ${driver.Driver.familyName}` }}</router-link>
                         </td>
                         <td>{{ driver.points }}</td>
                     </tr>
