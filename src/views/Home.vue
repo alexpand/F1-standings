@@ -1,20 +1,29 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
 import { getDriversStandings } from '@/api/drivers/getDriversStandings'
 import { getConstructorStandings } from '@/api/constructors/getConstructorStandings'
-import { getCircuits } from '@/api/circuits/getCircuits'
+import { getSchedule } from '@/api/schedules'
 
 import lang from '@/lang'
 
 const driverList = ref(null)
 const constructorList = ref(null)
-const circuitList = ref(null)
+const calendar = ref(null)
+
+const nextRaces = computed( () => {
+    const today = Date.now()
+    const filteredRaces = calendar.value.filter( (race) => {
+        const raceDate = new Date(race.date)
+        return raceDate > today
+    })
+    return filteredRaces.slice(0, 3)
+})
 
 onMounted( async () => {
     driverList.value = await getDriversStandings()
     constructorList.value = await getConstructorStandings()
-    circuitList.value = await getCircuits()
+    calendar.value = await getSchedule()
 })
 
 </script>
@@ -33,7 +42,7 @@ onMounted( async () => {
                         <td>
                             <router-link data-test="driver-lead" :to="`/driver/${driver.Driver.driverId}`">{{ `${driver.Driver.givenName} ${driver.Driver.familyName}` }}</router-link>
                         </td>
-                        <td>{{ driver.points }}</td>
+                        <td class="u-align--right">{{ driver.points }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -50,25 +59,29 @@ onMounted( async () => {
                     >
                         <td>
                             <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
+                            <img 
+                                :src="`/src/assets/constructors/logos/${constructor.Constructor.constructorId}.png`" 
+                                :alt="`${constructor.Constructor.name} logo`"
+                                class="logo-list"
+                            >
                         </td>
-                        <td>{{ constructor.points }}</td>
+                        <td class="u-align--right">{{ constructor.points }}</td>
                     </tr>
                 </tbody>
             </table>
         </article>
     </article>
     <article>
-        <h2>{{ lang.common_circuit(2) }}</h2>
-        <article v-if="circuitList" class="u-overflow">
+        <h2>{{ lang.common_calendar }}</h2>
+        <article v-if="calendar" class="u-overflow">
             <table>
                 <tbody>
                     <tr
-                        v-for="circuit in circuitList.slice(0, 3)"
-                        :key="circuit.circuitId"
+                        v-for="race in nextRaces"
+                        :key="`${race.raceName + race.date}`"
                     >
-                        <td>
-                            <a :href="circuit.url">{{ circuit.circuitName }}</a>
-                        </td>
+                        <td> {{race.raceName}} </td>
+                        <td class="u-align--right"> {{race.date}} </td>
                     </tr>
                 </tbody>
             </table>

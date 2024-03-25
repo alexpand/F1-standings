@@ -28,7 +28,12 @@ onMounted( async () => {
         <h1>{{ lang.common_driver() }}</h1>
     </div>
     <article v-if="driverData && driverWins" class="u-overflow">
-        {{ driverData.givenName }} {{ driverData.familyName }}
+        <img
+            :src="`/src/assets/constructors/cars/${driverWins[driverWins.length -1].Results[0].Constructor.constructorId}.png`" 
+            :alt="`${driverWins[driverWins.length -1].Results[0].Constructor.constructorId} car`"
+            class=""
+        >
+        <h3>{{ driverData.givenName }} {{ driverData.familyName }}</h3>
         <footer v-if="driverWins.length">
             <table>
                 <thead>
@@ -44,6 +49,11 @@ onMounted( async () => {
                         <td>{{ result.raceName }}</td>
                         <td>
                             <router-link :to="`/constructor/${result.Results[0].Constructor.constructorId}`">{{ result.Results[0].Constructor.name }}</router-link>
+                            <img 
+                                :src="`/src/assets/constructors/logos/${result.Results[0].Constructor.constructorId}.png`" 
+                                :alt="`${result.Results[0].Constructor.name} logo`"
+                                class="logo-list"
+                            >
                         </td>
                     </tr>
                 </tbody>

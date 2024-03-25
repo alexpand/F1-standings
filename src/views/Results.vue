@@ -59,6 +59,11 @@ onMounted( async () => {
                     </td>
                     <td>
                         <router-link :to="`/constructor/${race.Constructor.constructorId}`">{{ race.Constructor.name }}</router-link>
+                        <img 
+                            :src="`/src/assets/constructors/logos/${race.Constructor.constructorId}.png`" 
+                            :alt="`${race.Constructor.name} logo`"
+                            class="logo-list"
+                        >
                     </td>
                     <td class="u-hideMobile">{{ race.laps }}</td>
                     <td>{{ race.grid }}</td>

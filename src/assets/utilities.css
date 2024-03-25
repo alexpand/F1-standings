@@ -3,6 +3,10 @@
     max-width: 100%;
 }
 
+.u-align--right {
+    text-align: right;
+}
+
 @media (max-width: 768px) {
     .u-hideMobile {
         display: none

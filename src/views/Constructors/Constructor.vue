@@ -29,6 +29,11 @@ onMounted( async () => {
         <h1>{{ lang.common_constructor() }}</h1>
     </div>
     <article>
+        <img
+            v-if="constructorData"
+            :src="`/src/assets/constructors/cars/${constructor}.png`" 
+            :alt="`${constructorData.name} car`"
+        >
         <h3>{{ constructorData?.name }}</h3>
         <article v-if="constructorDrivers" class="u-overflow">
             <table>
