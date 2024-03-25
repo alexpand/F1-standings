@@ -18,11 +18,11 @@ onMounted( async () => {
     <article>
         <h2>{{ lang.common_driver(Object.keys(favoritesStore.drivers).length) }}</h2>
         <ul v-if="Object.keys(favoritesStore.drivers).length">
-            <li v-for="driver in favoritesStore.drivers">
+            <li v-for="driver in favoritesStore.drivers" data-test="driver-favorite">
                 <router-link :to="driver.url">{{ driver.name }}</router-link>
             </li>
         </ul>
-        <p v-else>{{ lang.common_no_drivers }}</p>
+        <p v-else data-test="empty-drivers">{{ lang.common_no_drivers }}</p>
     </article>
     <article>
         <h2>{{ lang.common_constructor(Object.keys(favoritesStore.constructors).length) }}</h2>
@@ -31,7 +31,7 @@ onMounted( async () => {
                 <router-link :to="constructor.url">{{ constructor.name }}</router-link>
             </li>
         </ul>
-        <p v-else>{{ lang.common_no_constructors }}</p>
+        <p v-else data-test="empty-constructors">{{ lang.common_no_constructors }}</p>
     </article>
     <article>
         <h2>{{ lang.common_circuit(Object.keys(favoritesStore.circuits).length) }}</h2>
@@ -40,6 +40,6 @@ onMounted( async () => {
                 {{ circuit.name }}
             </li>
         </ul>
-        <p v-else>{{ lang.common_no_circuits }}</p>
+        <p v-else data-test="empty-circuits">{{ lang.common_no_circuits }}</p>
     </article>
 </template>

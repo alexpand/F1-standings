@@ -33,10 +33,18 @@ function isFavorite() {
 </script>
 
 <template>
-    <span v-if="isFavorite()" @click="handleRemoveFavoriteOnClick">★</span>
+    <span 
+        v-if="isFavorite()" 
+        @click="handleRemoveFavoriteOnClick"
+        data-test="favorite-button"
+        class="active"
+    >
+        ★
+    </span>
     <span
         v-else
         @click="handleSetFavoriteOnClick"
+        data-test="favorite-button"
     >
         ☆
     </span>

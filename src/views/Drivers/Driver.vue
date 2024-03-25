@@ -33,7 +33,7 @@ onMounted( async () => {
             :alt="`${driverWins[driverWins.length -1].Results[0].Constructor.constructorId} car`"
             class=""
         >
-        <h3>{{ driverData.givenName }} {{ driverData.familyName }}</h3>
+        <h3 data-test="driver-name">{{ driverData.givenName }} {{ driverData.familyName }}</h3>
         <footer v-if="driverWins.length">
             <table>
                 <thead>

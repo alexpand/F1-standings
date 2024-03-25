@@ -58,7 +58,7 @@ onMounted( async () => {
                         :key="constructor.Constructor.constructorId"
                     >
                         <td>
-                            <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
+                            <router-link data-test="constructor-lead" :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
                             <img 
                                 :src="`/src/assets/constructors/logos/${constructor.Constructor.constructorId}.png`" 
                                 :alt="`${constructor.Constructor.name} logo`"
@@ -79,8 +79,9 @@ onMounted( async () => {
                     <tr
                         v-for="race in nextRaces"
                         :key="`${race.raceName + race.date}`"
+                        data-test="next-races"
                     >
-                        <td> {{race.raceName}} </td>
+                        <td data-test="=race-name"> {{race.raceName}} </td>
                         <td class="u-align--right"> {{race.date}} </td>
                     </tr>
                 </tbody>

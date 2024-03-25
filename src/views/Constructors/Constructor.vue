@@ -34,7 +34,7 @@ onMounted( async () => {
             :src="`/src/assets/constructors/cars/${constructor}.png`" 
             :alt="`${constructorData.name} car`"
         >
-        <h3>{{ constructorData?.name }}</h3>
+        <h3 data-test="constructor-name">{{ constructorData?.name }}</h3>
         <article v-if="constructorDrivers" class="u-overflow">
             <table>
                 <thead>

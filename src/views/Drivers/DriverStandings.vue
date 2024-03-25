@@ -74,7 +74,7 @@ onMounted( async () => {
                             :id="driver.Driver.driverId" 
                             :name="`${driver.Driver.givenName} ${driver.Driver.familyName}`" 
                             :url="`/driver/${driver.Driver.driverId}`" 
-                            type="drivers" 
+                            type="drivers"
                         />
                     </td>
                 </tr>
