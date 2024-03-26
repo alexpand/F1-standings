@@ -29,4 +29,5 @@ export default {
     common_no_circuits: 'no circuits yet',
     common_home: 'home',
     common_number: 'number',
+    common_next_races: 'next races',
 }

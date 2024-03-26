@@ -29,4 +29,5 @@ export default {
     common_no_circuits: 'aún no hay circuitos',
     common_home: 'inicio',
     common_number: 'número',
+    common_next_races: 'próximas carreras',
 }

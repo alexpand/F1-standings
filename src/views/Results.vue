@@ -58,12 +58,12 @@ onMounted( async () => {
                         <router-link :to="`/driver/${race.Driver.driverId}`">{{ `${race.Driver.givenName} ${race.Driver.familyName}` }}</router-link>
                     </td>
                     <td>
-                        <router-link :to="`/constructor/${race.Constructor.constructorId}`">{{ race.Constructor.name }}</router-link>
                         <img 
                             :src="`/src/assets/constructors/logos/${race.Constructor.constructorId}.png`" 
                             :alt="`${race.Constructor.name} logo`"
                             class="logo-list"
                         >
+                        <router-link :to="`/constructor/${race.Constructor.constructorId}`">{{ race.Constructor.name }}</router-link>
                     </td>
                     <td class="u-hideMobile">{{ race.laps }}</td>
                     <td>{{ race.grid }}</td>

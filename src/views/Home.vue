@@ -58,12 +58,12 @@ onMounted( async () => {
                         :key="constructor.Constructor.constructorId"
                     >
                         <td>
-                            <router-link data-test="constructor-lead" :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
                             <img 
                                 :src="`/src/assets/constructors/logos/${constructor.Constructor.constructorId}.png`" 
                                 :alt="`${constructor.Constructor.name} logo`"
                                 class="logo-list"
                             >
+                            <router-link data-test="constructor-lead" :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
                         </td>
                         <td class="u-align--right">{{ constructor.points }}</td>
                     </tr>
@@ -73,6 +73,7 @@ onMounted( async () => {
     </article>
     <article>
         <h2>{{ lang.common_calendar }}</h2>
+        <h4>{{ lang.common_next_races }}</h4>
         <article v-if="calendar" class="u-overflow">
             <table>
                 <tbody>

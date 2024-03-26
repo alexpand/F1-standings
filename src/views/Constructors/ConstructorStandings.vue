@@ -55,12 +55,12 @@ onMounted( async () => {
                 >
                     <td class="u-hideMobile">{{ constructor.position }}</td>
                     <td>
-                        <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
                         <img 
                             :src="`/src/assets/constructors/logos/${constructor.Constructor.constructorId}.png`" 
                             :alt="`${constructor.Constructor.name} logo`"
                             class="logo-list"
                         >
+                        <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
                     </td>
                     <td>{{ constructor.points }}</td>
                     <td>{{ constructor.wins }}</td>

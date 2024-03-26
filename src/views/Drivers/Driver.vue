@@ -48,12 +48,12 @@ onMounted( async () => {
                         <td>{{ result.season }}</td>
                         <td>{{ result.raceName }}</td>
                         <td>
-                            <router-link :to="`/constructor/${result.Results[0].Constructor.constructorId}`">{{ result.Results[0].Constructor.name }}</router-link>
                             <img 
                                 :src="`/src/assets/constructors/logos/${result.Results[0].Constructor.constructorId}.png`" 
                                 :alt="`${result.Results[0].Constructor.name} logo`"
                                 class="logo-list"
                             >
+                            <router-link :to="`/constructor/${result.Results[0].Constructor.constructorId}`">{{ result.Results[0].Constructor.name }}</router-link>
                         </td>
                     </tr>
                 </tbody>
