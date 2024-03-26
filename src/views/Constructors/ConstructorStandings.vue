@@ -60,7 +60,7 @@ onMounted( async () => {
                             :alt="`${constructor.Constructor.name} logo`"
                             class="logo-list"
                         >
-                        <router-link :to="`/constructor/${constructor.Constructor.constructorId}`">{{ constructor.Constructor.name }}</router-link>
+                        <router-link :to="`/constructor/${constructor.Constructor.constructorId}`" data-test="constructor-lead">{{ constructor.Constructor.name }}</router-link>
                     </td>
                     <td>{{ constructor.points }}</td>
                     <td>{{ constructor.wins }}</td>

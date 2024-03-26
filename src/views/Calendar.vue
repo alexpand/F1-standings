@@ -38,7 +38,7 @@ onMounted( async () => {
                     :key="race.raceName + index"
                 >
                     <td class="u-hideMobile">{{ race.round }}</td>
-                    <td>{{ race.raceName }}</td>
+                    <td data-test="race-name">{{ race.raceName }}</td>
                     <td>{{ race.date }}</td>
                     <td class="u-hideMobile">{{ race.time }}</td>
                     <td class="u-hideMobile">{{ race.Sprint?.date }}</td>
@@ -47,6 +47,7 @@ onMounted( async () => {
                         <router-link
                             v-if="roundResults[index]"
                             :to="`/results/${race.round}`"
+                            data-test="results-link"
                         >
                             {{ lang.common_results }}
                         </router-link>

@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "cypress run",
-    "testui": "cypress open"
+    "test:ui": "cypress open"
   },
   "dependencies": {
     "cypress": "^13.7.0",

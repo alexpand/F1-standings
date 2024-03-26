@@ -53,7 +53,7 @@ onMounted( async () => {
                     v-for="circuit in circuitList"
                     :key="circuit.circuitId"
                 >
-                    <td>{{ circuit.circuitName }}</td>
+                    <td data-test="circuit-name">{{ circuit.circuitName }}</td>
                     <td class="u-hideMobile">{{ circuit.Location.locality }}</td>
                     <td>{{ circuit.Location.country }}</td>
                     <td class="u-hideMobile"><a :href="circuit.url">{{ lang.common_description }}</a></td>

@@ -30,8 +30,8 @@ onMounted( async () => {
     </div>
     <article v-if="raceResults" class="u-overflow">
         <hgroup>
-            <h3>{{ raceResults.raceName }}</h3>
-            <h3>{{ raceResults.date }}</h3>
+            <h3 data-test="race-name">{{ raceResults.raceName }}</h3>
+            <h3 data-test="race-date">{{ raceResults.date }}</h3>
         </hgroup>
         <table>
             <thead>
@@ -55,7 +55,7 @@ onMounted( async () => {
                     <td class="u-hideMobile">{{ race.position }}</td>
                     <td class="u-hideMobile">{{ race.number }}</td>
                     <td>
-                        <router-link :to="`/driver/${race.Driver.driverId}`">{{ `${race.Driver.givenName} ${race.Driver.familyName}` }}</router-link>
+                        <router-link :to="`/driver/${race.Driver.driverId}`" data-test="driver-lead">{{ `${race.Driver.givenName} ${race.Driver.familyName}` }}</router-link>
                     </td>
                     <td>
                         <img 
@@ -63,7 +63,7 @@ onMounted( async () => {
                             :alt="`${race.Constructor.name} logo`"
                             class="logo-list"
                         >
-                        <router-link :to="`/constructor/${race.Constructor.constructorId}`">{{ race.Constructor.name }}</router-link>
+                        <router-link :to="`/constructor/${race.Constructor.constructorId}`" data-test="constructor-lead">{{ race.Constructor.name }}</router-link>
                     </td>
                     <td class="u-hideMobile">{{ race.laps }}</td>
                     <td>{{ race.grid }}</td>

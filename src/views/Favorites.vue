@@ -26,7 +26,7 @@ onMounted( async () => {
     </article>
     <article>
         <h2>{{ lang.common_constructor(Object.keys(favoritesStore.constructors).length) }}</h2>
-        <ul v-if="Object.keys(favoritesStore.constructors).length">
+        <ul v-if="Object.keys(favoritesStore.constructors).length" data-test="constructor-favorite">
             <li v-for="constructor in favoritesStore.constructors">
                 <router-link :to="constructor.url">{{ constructor.name }}</router-link>
             </li>
@@ -35,7 +35,7 @@ onMounted( async () => {
     </article>
     <article>
         <h2>{{ lang.common_circuit(Object.keys(favoritesStore.circuits).length) }}</h2>
-        <ul v-if="Object.keys(favoritesStore.circuits).length">
+        <ul v-if="Object.keys(favoritesStore.circuits).length" data-test="circuit-favorite">
             <li v-for="circuit in favoritesStore.circuits">
                 {{ circuit.name }}
             </li>

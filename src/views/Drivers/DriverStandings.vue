@@ -57,7 +57,7 @@ onMounted( async () => {
                 >
                     <td>{{ driver.position }}</td>
                     <td>
-                        <router-link :to="`/driver/${driver.Driver.driverId}`">{{ `${driver.Driver.givenName} ${driver.Driver.familyName}` }}</router-link>
+                        <router-link :to="`/driver/${driver.Driver.driverId}`" data-test="driver-lead">{{ `${driver.Driver.givenName} ${driver.Driver.familyName}` }}</router-link>
                     </td>
                     <td>
                         <img 
@@ -65,7 +65,7 @@ onMounted( async () => {
                             :alt="`${driver.Constructors[0].name} logo`"
                             class="logo-list"
                         >
-                        <router-link :to="`/constructor/${driver.Constructors[0].constructorId}`">{{ driver.Constructors[0].name }}</router-link>
+                        <router-link :to="`/constructor/${driver.Constructors[0].constructorId}`" data-test="constructor-lead">{{ driver.Constructors[0].name }}</router-link>
                     </td>
                     <td>{{ driver.points }}</td>
                     <td class="u-hideMobile">{{ driver.wins }}</td>

@@ -5,7 +5,7 @@ import lang from '@/lang'
 
 const navLinks = [
   {name: 'Home', url: '/'},
-  {name: lang.common_driver_standings, url: '/driverStandings'},
+  {name: lang.common_driver_standings, url: '/driverstandings'},
   {name: lang.common_constructor_standings, url: '/constructorstandings'},
   {name: lang.common_results, url: '/results'},
   {name: lang.common_circuit(2), url: '/circuit'},
@@ -30,16 +30,26 @@ function closeMenu() {
 
 <template>
     <nav>
-      <span class="button--icon" @click="toggleMenu">
+      <span 
+        class="button--icon" 
+        @click="toggleMenu"
+        data-test="mobile-menu"
+      >
         <img 
           src="@/assets/menu.svg" 
           alt="Menu icon"
           width="64"
         >
       </span>
-      <ul :class="{'visible': isVisible, 'noVisible': !isFirstLoad && !isVisible}">
+      <ul :class="{'visible': isVisible, 'noVisible': !isFirstLoad && !isVisible}" data-test="nav-list">
         <li v-for="link in navLinks" :key="link.url">
-          <router-link :to="link.url" @click="closeMenu">{{ link.name }}</router-link>
+          <router-link 
+            :to="link.url" 
+            @click="closeMenu"
+            :data-test="`nav-link-${link.url}`"
+          >
+            {{ link.name }}
+          </router-link>
         </li>
       </ul>
     </nav>
