@@ -59,7 +59,7 @@ onMounted( async () => {
                     </td>
                     <td>
                         <img 
-                            :src="`/src/assets/constructors/logos/${race.Constructor.constructorId}.png`" 
+                            :src="`/constructors/logos/${race.Constructor.constructorId}.png`" 
                             :alt="`${race.Constructor.name} logo`"
                             class="logo-list"
                         >
